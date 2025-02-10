@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notificações</title>
+    <script>
+        async function checkNotifications() {
+            let response = await fetch("notificacoes.json");
+            let data = await response.json();
+            document.getElementById("notificacoes").innerHTML = data.mensagem || "Nenhuma nova notificação.";
+        }
+        setInterval(checkNotifications, 10000);
+    </script>
+</head>
+<body onload="checkNotifications()">
+    <h1>Notificações</h1>
+    <p id="notificacoes">Carregando...</p>
+</body>
+</html>
